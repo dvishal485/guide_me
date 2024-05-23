@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import Message from "./types/Message";
+import MessageType from "./types/MessageType";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,16 +21,17 @@ function App() {
           return;
         }
 
-        chrome.tabs.sendMessage(
-          tab.id,
-          { message: "hello from tab" },
-          (response) => {
-            console.log("message received by tab:", response);
-            setMessage(response);
-          },
-        );
+        const message: Message = {
+          message_type: MessageType.PopupOpen,
+          payload: "hello from popup",
+        };
+
+        chrome.tabs.sendMessage(tab.id, message, (response) => {
+          console.log("message received by tab:", response);
+          setMessage(response);
+        });
       });
-  });
+  }, []);
 
   return (
     <>

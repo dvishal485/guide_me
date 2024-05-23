@@ -5,6 +5,7 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   plugins: [react()],
   build: {
+    minify: false, // for testing purposes
     rollupOptions: {
       input: {
         content: "index.html",

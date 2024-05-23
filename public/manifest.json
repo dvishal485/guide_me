@@ -22,5 +22,11 @@
     "permissions": [
         "activeTab",
         "tabs"
-    ]
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "guide_me@dvishal485",
+            "strict_min_version": "109.0"
+        }
+    }
 }
