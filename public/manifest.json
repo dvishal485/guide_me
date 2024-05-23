@@ -1,0 +1,27 @@
+{
+    "name": "Browser Extension Demo",
+    "description": "A browser extension demo built using Vite",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_title": "Browser Extension",
+        "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "./assets/background.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "scripting"
+    ]
+}
