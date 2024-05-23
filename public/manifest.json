@@ -1,10 +1,10 @@
 {
-    "name": "Browser Extension Demo",
-    "description": "A browser extension demo built using Vite",
-    "version": "1.0",
+    "name": "guide_me",
+    "description": "A browser extension to give you a step by step tutorial for various websites.",
+    "version": "0.1",
     "manifest_version": 3,
     "action": {
-        "default_title": "Browser Extension",
+        "default_title": "GuideMe!",
         "default_popup": "index.html"
     },
     "content_scripts": [
@@ -21,7 +21,6 @@
     ],
     "permissions": [
         "activeTab",
-        "tabs",
-        "scripting"
+        "tabs"
     ]
 }
