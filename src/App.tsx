@@ -6,12 +6,9 @@ import Message from "./types/Message";
 import MessageType from "./types/MessageType";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [message, setMessage] = useState<string | null>(null);
 
   React.useEffect(() => {
-    console.log("Hello, Vite + React!");
-
     chrome.tabs &&
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         console.log("tabs", tabs);
@@ -43,11 +40,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>GuideMe!</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <div>Message is: "{message}"</div>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
