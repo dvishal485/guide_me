@@ -16,8 +16,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         content: "index.html",
-        background: "./src/browser/index.ts",
+        // background: "./src/browser/index.ts",
         shepherd_injection: "./src/browser/shepherd_injection.ts",
+        shepherd_css: "./src/browser/shepherd_css.ts",
       },
       output: {
         entryFileNames: "assets/[name].js",
