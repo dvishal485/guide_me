@@ -7,6 +7,18 @@
         "default_title": "GuideMe!",
         "default_popup": "index.html"
     },
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "./assets/background.js"
+            ]
+        }
+    ],
     "permissions": [
         "activeTab",
         "tabs",

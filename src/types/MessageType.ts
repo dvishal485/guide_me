@@ -1,5 +1,6 @@
 const enum MessageType {
-  PopupOpen,
+  FetchScripts,
+  GetScript,
   InjectScript,
 }
 

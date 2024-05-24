@@ -1,35 +1,18 @@
-// import React, { useState } from "react";
+import React from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-// import Message from "./types/Message";
-// import MessageType from "./types/MessageType";
+import Message from "./types/Message";
+import MessageType from "./types/MessageType";
 
 function inject() {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    console.log("tabs", tabs);
     const tab = tabs[0];
     if (!tab.id) {
-      console.log("tab id not found");
+      console.error("tab id not found, cannot inject script!");
       return;
     }
-    // chrome.scripting.executeScript({
-    //   target: { tabId: tab.id },
-    //   files: ["assets/shepherd_injection.js"],
-    // });
-    // const message: Message = {
-    //   message_type: MessageType.InjectScript,
-    //   payload: tab.id,
-    // };
-    // chrome.tabs.sendMessage(tab.id, message, (response) => {
-    //   console.log("message received by tab:", response);
-    // });
-    // chrome.scripting.insertCSS({
-    //   target: {
-    //     tabId: tab.id,
-    //   },
-    //   files: ["assets/style.css"],
-    // });
+
     chrome.scripting.executeScript({
       target: {
         tabId: tab.id,
@@ -66,27 +49,24 @@ function inject() {
 }
 
 function App() {
-  // React.useEffect(() => {
-  //   chrome.tabs &&
-  //     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-  //       console.log("tabs", tabs);
-  //       const tab = tabs[0];
-  //       if (!tab.id) {
-  //         console.log("tab id not found");
-  //         return;
-  //       }
+  React.useEffect(() => {
+    chrome.tabs &&
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const tab = tabs[0];
+        if (!tab.id) {
+          console.error("tab id not found, can't fetch scripts!");
+          return;
+        }
 
-  // const message: Message = {
-  //   message_type: MessageType.PopupOpen,
-  //   payload: "hello from popup",
-  // };
+        const message: Message = {
+          message_type: MessageType.FetchScripts,
+        };
 
-  // chrome.tabs.sendMessage(tab.id, message, (response) => {
-  //   console.log("message received by tab:", response);
-  //   setMessage(response);
-  // });
-  //     });
-  // }, []);
+        chrome.tabs.sendMessage(tab.id, message, (response) => {
+          console.log("message received by tab:", response);
+        });
+      });
+  }, []);
 
   return (
     <>
