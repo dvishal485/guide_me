@@ -9,18 +9,14 @@ chrome.runtime.onMessage.addListener(
       case MessageType.GetScript:
         fetch(message.payload!)
           .then((response) => {
-            response.text().then((text) => {
-              sendResponse(text);
-            });
+            response.json().then(sendResponse);
           })
           .catch(alert);
         break;
       case MessageType.FetchScripts:
         fetch(scripts_url)
           .then((response) => {
-            response.text().then((text) => {
-              sendResponse(text);
-            });
+            response.json().then(sendResponse);
           })
           .catch(console.error);
         break;
