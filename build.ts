@@ -1,4 +1,6 @@
 import { $, Glob } from "bun";
+import fs from "fs";
+import manifest from "./public/manifest.json";
 
 export async function build() {
   await $`bunx tsc && bunx vite build`;
@@ -11,7 +13,18 @@ export async function build() {
     }),
   );
 
-  // await $`bunx rm -rf dist/assets/chunks`;
+  await $`bunx rm -rf dist/assets/chunks`;
+
+  if (import.meta.env.TARGET_CHROME === "true") {
+    const new_manifest = {
+      ...manifest,
+      browser_specific_settings: undefined,
+    };
+    fs.writeFileSync(
+      "dist/manifest.json",
+      JSON.stringify(new_manifest, null, 2),
+    );
+  }
 }
 
 if (import.meta.main) {

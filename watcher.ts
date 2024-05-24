@@ -7,7 +7,7 @@ process.on("SIGINT", () => {
 });
 
 console.log("Building...");
-await build();
+await build().catch(console.error);
 
 console.log("Watching for changes...");
 const watcher = watch(

@@ -5,6 +5,59 @@ import "./App.css";
 import Message from "./types/Message";
 import MessageType from "./types/MessageType";
 
+function inject() {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    console.log("tabs", tabs);
+    const tab = tabs[0];
+    if (!tab.id) {
+      console.log("tab id not found");
+      return;
+    }
+    // chrome.scripting.executeScript({
+    //   target: { tabId: tab.id },
+    //   files: ["assets/shepherd_injection.js"],
+    // });
+    const message: Message = {
+      message_type: MessageType.InjectScript,
+      payload: tab.id,
+    };
+    chrome.tabs.sendMessage(tab.id, message, (response) => {
+      console.log("message received by tab:", response);
+    });
+    chrome.scripting.insertCSS({
+      target: {
+        tabId: tab.id,
+      },
+      files: ["assets/style.css"],
+    });
+    chrome.scripting.executeScript({
+      target: {
+        tabId: tab.id,
+      },
+      files: ["assets/shepherd_injection.js"],
+    });
+  });
+
+  // chrome.tabs &&
+  //   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+  //     console.log("tabs", tabs);
+  //     const tab = tabs[0];
+  //     if (!tab.id) {
+  //       console.log("tab id not found");
+  //       return;
+  //     }
+
+  //     const message: Message = {
+  //       message_type: MessageType.InjectScript,
+  //       payload: "injection",
+  //     };
+
+  //     chrome.tabs.sendMessage(tab.id, message, (response) => {
+  //       console.log("message received by tab:", response);
+  //     });
+  //   });
+}
+
 function App() {
   const [message, setMessage] = useState<string | null>(null);
 
@@ -50,6 +103,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <button onClick={inject}>Inject code!</button>
     </>
   );
 }
