@@ -15,7 +15,7 @@
   document.head.appendChild(styleSheet);
   console.log("Shepherd injection!");
 
-  const myFukingTour = new Shepherd.Tour({
+  const injectedTour = new Shepherd.Tour({
     useModalOverlay: false,
     defaultStepOptions: {
       classes: "shadow-md bg-purple-dark",
@@ -23,7 +23,7 @@
     },
   });
 
-  myFukingTour.addStep({
+  injectedTour.addStep({
     id: "email",
     text: "email elem",
     attachTo: {
@@ -34,12 +34,12 @@
     buttons: [
       {
         text: "Next",
-        action: myFukingTour.next,
+        action: injectedTour.next,
       },
     ],
   });
 
-  myFukingTour.addStep({
+  injectedTour.addStep({
     id: "password",
     text: "pwd elem",
     attachTo: {
@@ -50,10 +50,10 @@
     buttons: [
       {
         text: "Next",
-        action: myFukingTour.next,
+        action: injectedTour.next,
       },
     ],
   });
 
-  myFukingTour.start();
+  injectedTour.start();
 })();
