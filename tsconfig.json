@@ -22,7 +22,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "types": [
-      "chrome"
+      "chrome","node"
     ]
   },
   "include": [

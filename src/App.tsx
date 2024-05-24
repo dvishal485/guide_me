@@ -24,12 +24,12 @@ function inject() {
     chrome.tabs.sendMessage(tab.id, message, (response) => {
       console.log("message received by tab:", response);
     });
-    chrome.scripting.insertCSS({
-      target: {
-        tabId: tab.id,
-      },
-      files: ["assets/style.css"],
-    });
+    // chrome.scripting.insertCSS({
+    //   target: {
+    //     tabId: tab.id,
+    //   },
+    //   files: ["assets/style.css"],
+    // });
     chrome.scripting.executeScript({
       target: {
         tabId: tab.id,
