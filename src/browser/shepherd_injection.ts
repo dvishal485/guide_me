@@ -1,41 +1,37 @@
 import build from "../tour_builder";
 
-const dummy_config = `[
+const dummy_config = [
   {
-    "id": "email",
-    "text": "email elem",
-    "attachTo": {
-      "element": "#email",
-      "on": "bottom"
+    id: "email",
+    text: "email elem",
+    attachTo: {
+      element: "#email",
+      on: "bottom",
     },
-    "classes": "email",
-    "tasks": [
-      "next"
-    ],
-    "buttons": [
+    classes: "email",
+    tasks: ["next"],
+    buttons: [
       {
-        "text": "Next"
-      }
-    ]
+        text: "Next",
+      },
+    ],
   },
   {
-    "id": "password",
-    "text": "pwd elem",
-    "attachTo": {
-      "element": "#password",
-      "on": "bottom"
+    id: "password",
+    text: "pwd elem",
+    attachTo: {
+      element: "#password",
+      on: "bottom",
     },
-    "tasks": [
-      "next"
-    ],
-    "classes": "password",
-    "buttons": [
+    tasks: ["next"],
+    classes: "password",
+    buttons: [
       {
-        "text": "Next"
-      }
-    ]
-  }
-]`;
+        text: "Next",
+      },
+    ],
+  },
+];
 
 (function () {
   console.log("Shepherd injection!");

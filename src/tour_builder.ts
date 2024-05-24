@@ -1,8 +1,8 @@
 import S from "shepherd.js";
 
-export default function build_tour(config: string) {
+export default function build_tour(config: unknown[]) {
   try {
-    const config_json: TourSteps[] = JSON.parse(config);
+    const config_json = config as TourSteps[];
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const Shepherd: typeof S = require("shepherd.js");
 

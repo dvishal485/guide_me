@@ -1,0 +1,40 @@
+{
+    "match": "team.dtutimes.com/login",
+    "description": "Login tour for DTU Times Team Portal",
+    "config": [
+        {
+            "id": "email",
+            "text": "Input your email here",
+            "attachTo": {
+                "element": "#email",
+                "on": "bottom"
+            },
+            "classes": "email",
+            "tasks": [
+                "next"
+            ],
+            "buttons": [
+                {
+                    "text": "Next"
+                }
+            ]
+        },
+        {
+            "id": "password",
+            "text": "Input your password here",
+            "attachTo": {
+                "element": "#password",
+                "on": "bottom"
+            },
+            "tasks": [
+                "next"
+            ],
+            "classes": "password",
+            "buttons": [
+                {
+                    "text": "Next"
+                }
+            ]
+        }
+    ]
+}
