@@ -1,23 +1,29 @@
 import { $, Glob } from "bun";
 import fs from "fs";
 import manifest from "./public/manifest.json";
+import package_json from "./package.json";
 import DomainConfig from "./src/types/DomainConfig";
 
 export async function build() {
+  console.log("build task started");
   generate_configs();
 
   await $`bunx tsc && bunx vite build`;
   const glob = new Glob("dist/assets/*.js");
   const jsFiles = await Array.fromAsync(glob.scan());
 
+  console.log("vite build done! Executing bun build...");
   await Promise.all(
     jsFiles.map(async (jsFile) => {
       await $`bun build --minify ${jsFile} --outfile ${jsFile}`;
     }),
   );
+  fs.rm("dist/assets/chunks", { recursive: true, force: true }, (e) => {
+    if (e) console.error(e);
+  });
+  console.log("bun build completed");
 
-  await $`bunx rm -rf dist/assets/chunks`;
-
+  manifest.version = package_json.version;
   if (import.meta.env.TARGET_CHROME === "true") {
     const new_manifest = {
       ...manifest,
@@ -27,7 +33,11 @@ export async function build() {
       "dist/manifest.json",
       JSON.stringify(new_manifest, null, 2),
     );
+  } else {
+    fs.writeFileSync("dist/manifest.json", JSON.stringify(manifest, null, 2));
   }
+
+  console.log(`Build done for extension ${manifest.name} v${manifest.version}`);
 }
 
 function generate_configs() {
@@ -43,7 +53,6 @@ function generate_configs() {
         if (config !== "index.json") {
           const config_file = fs.readFileSync(`configs/${domain}/${config}`);
           const config_json = JSON.parse(config_file.toString());
-          console.log(config);
           const config_data: DomainConfig = {
             name: config,
             match: config_json.match,

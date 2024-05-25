@@ -1,7 +1,7 @@
 {
     "name": "GuideMe",
     "description": "A browser extension to give you a step by step tutorial for various websites.",
-    "version": "0.1",
+    "version": "<build_version>",
     "manifest_version": 3,
     "icons": {
         "16": "logo16.png",
