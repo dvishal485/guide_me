@@ -1,12 +1,11 @@
+import "@/App.css";
 import reactLogo from "@/assets/react.svg";
 import Message from "@/types/Message";
 import MessageType from "@/types/MessageType";
 import React from "react";
-import "@/App.css";
-import build_tour from "@/tour_builder";
-import viteLogo from "/vite.svg";
 import DomainConfig from "./types/DomainConfig";
 import match from "./utils/matcher";
+import viteLogo from "/vite.svg";
 
 function fetch_scripts(): Promise<DomainConfig[]> {
   return new Promise((resolve, reject) => {
