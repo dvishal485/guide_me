@@ -1,10 +1,19 @@
-# guide_me
+# GuideMe
+
+![GuideMe! logo](public/logo128.png.png)
 
 A browser extension to give you a step by step tutorial for various websites.
 
 GuideMe! can inject `shepherd.js` into websites which do not add their own support.
 
 Infact, it makes addition of a tutorial extremely easy on any page, it only requires to build a config.json file for each page you want to attach your guide. [Here is a sample](./configs/team.dtutimes.com/login_page.json).
+
+## Use Cases
+
+- This tool can be utilized to acquaint users with limited technical expertise with a range of web services.
+- A website utilizing non-js based builds can also use `shepherd.js` to add a website tour.
+- This resource serves to educate on the fundamentals of select web services, which, while straightforward and intuitive, may still require guidance for children, thus acting as a bridge.
+- Requires no hindering with code! Only a single configuration file handles it all.
 
 ## How to add configuration?
 
