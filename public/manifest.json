@@ -3,9 +3,16 @@
     "description": "A browser extension to give you a step by step tutorial for various websites.",
     "version": "0.1",
     "manifest_version": 3,
+    "icons": {
+        "16": "logo16.png",
+        "32": "logo32.png",
+        "48": "logo48.png",
+        "128": "logo128.png"
+    },
     "action": {
         "default_title": "GuideMe!",
-        "default_popup": "index.html"
+        "default_popup": "index.html",
+        "default_icon": "logo.png"
     },
     "content_scripts": [
         {

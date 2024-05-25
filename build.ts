@@ -16,7 +16,7 @@ export async function build() {
     }),
   );
 
-  // await $`bunx rm -rf dist/assets/chunks`;
+  await $`bunx rm -rf dist/assets/chunks`;
 
   if (import.meta.env.TARGET_CHROME === "true") {
     const new_manifest = {
