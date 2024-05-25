@@ -1,0 +1,36 @@
+{
+ "match": "",
+ "description": "Review 3rd party apps from google account",
+ "config": [
+  {
+   "text": "Type \"3\" here",
+   "attachTo": {
+    "element": "input",
+    "on": "bottom"
+   },
+   "tasks": [
+    "next"
+   ],
+   "buttons": [
+    {
+     "text": "Next"
+    }
+   ]
+  },
+  {
+   "text": "Type \"3\" here",
+   "attachTo": {
+    "element": "figure",
+    "on": "bottom"
+   },
+   "tasks": [
+    "next"
+   ],
+   "buttons": [
+    {
+     "text": "Finish"
+    }
+   ]
+  }
+ ]
+}
