@@ -22,7 +22,7 @@
             "id": "from_field",
             "text": "This is your email field, the sender of the email",
             "attachTo": {
-                "element": "#\\:184",
+                "element": "#\\:1fs",
                 "on": "top"
             },
             "tasks": [
@@ -38,23 +38,7 @@
             "id": "to_field",
             "text": "Input the email address of the receiver",
             "attachTo": {
-                "element": "#\\:1al",
-                "on": "bottom"
-            },
-            "tasks": [
-                "next"
-            ],
-            "buttons": [
-                {
-                    "text": "Next"
-                }
-            ]
-        },
-        {
-            "id": "subject",
-            "text": "Input the title of the email here",
-            "attachTo": {
-                "element": "#\\:1ag",
+                "element": "#\\:1nt",
                 "on": "bottom"
             },
             "tasks": [
