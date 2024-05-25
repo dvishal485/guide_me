@@ -6,7 +6,7 @@ import React from "react";
 import DomainConfig from "./types/DomainConfig";
 import match from "./utils/matcher";
 
-function fetch_scripts(): Promise<DomainConfig[]> {
+function fetch_scripts(): Promise<DomainConfig[] | null> {
   return new Promise((resolve, reject) => {
     chrome.tabs &&
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -25,6 +25,9 @@ function fetch_scripts(): Promise<DomainConfig[]> {
 
         chrome.tabs.sendMessage(tab.id, message, (scripts: DomainConfig[]) => {
           console.log("message received by tab:", scripts);
+          if (scripts === undefined) {
+            resolve(null);
+          }
 
           const response = scripts.filter((script) => match(url, script.match));
           resolve(response);
@@ -70,36 +73,19 @@ function App() {
         });
       });
     });
-
-    // chrome.tabs &&
-    //   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    //     console.log("tabs", tabs);
-    //     const tab = tabs[0];
-    //     if (!tab.id) {
-    //       console.log("tab id not found");
-    //       return;
-    //     }
-
-    //     const message: Message = {
-    //       message_type: MessageType.InjectScript,
-    //       payload: "injection",
-    //     };
-
-    //     chrome.tabs.sendMessage(tab.id, message, (response) => {
-    //       console.log("message received by tab:", response);
-    //     });
-    //   });
   }
 
   React.useEffect(() => {
-    fetch_scripts().then(setScripts);
-  }, []);
+    if (scripts === null) {
+      fetch_scripts().then(setScripts).catch(console.error);
+    }
+  }, [scripts]);
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={guide_me_logo} className="logo" alt="Vite logo" />
+        <a href="https://github.com/dvishal485/guide_me" target="_blank">
+          <img src={guide_me_logo} className="logo" alt="GuideMe! Logo" />
         </a>
       </div>
       <h1>GuideMe!</h1>
@@ -118,9 +104,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        <a href="https://github.com/dvishal485/guide_me/">
-          Made by @dvishal485
-        </a>
+        <a href="https://github.com/dvishal485/guide_me">Made by @dvishal485</a>
       </p>
     </>
   );
