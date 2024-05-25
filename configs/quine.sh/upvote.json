@@ -1,6 +1,6 @@
 {
- "match": "^quests/creator",
- "description": "Review 3rd party apps from google account",
+ "match": "^/quests/creator",
+ "description": "Upvote a repo in quine quest 12",
  "config": [
   {
    "text": "Navigate to the repo you want to upvote",
