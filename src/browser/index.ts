@@ -32,7 +32,9 @@ chrome.runtime.onMessage.addListener(
             .then((response) => {
               response.json().then((r) => {
                 dummyShepherdConfig.textContent = JSON.stringify(r);
-                sendResponse(r);
+                // this is not used by the caller
+                // sendResponse(r);
+                sendResponse("");
               });
             })
             .catch(alert);

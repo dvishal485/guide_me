@@ -12,7 +12,7 @@ export async function build() {
 
   await Promise.all(
     jsFiles.map(async (jsFile) => {
-      await $`bun build ${jsFile} --outfile ${jsFile}`;
+      await $`bun build --minify ${jsFile} --outfile ${jsFile}`;
     }),
   );
 

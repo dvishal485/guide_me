@@ -61,7 +61,7 @@ function App() {
         payload: `${url.hostname}/${scripts[script_idx].name}`,
       };
 
-      chrome.tabs.sendMessage(tabId, message, (script) => {
+      chrome.tabs.sendMessage(tabId, message, (_script) => {
         chrome.scripting.executeScript({
           target: {
             tabId: tabId,

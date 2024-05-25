@@ -12,7 +12,7 @@ export default defineConfig({
   },
   build: {
     cssCodeSplit: false,
-    minify: false, // for testing purposes
+    minify: true,
     rollupOptions: {
       input: {
         content: "index.html",
