@@ -1,6 +1,6 @@
 {
     "match": "^/login",
-    "description": "Login tour for DTU Times Team Portal",
+    "description": "How to login on Teams Portal?",
     "config": [
         {
             "id": "email",
@@ -33,6 +33,22 @@
             "buttons": [
                 {
                     "text": "Next"
+                }
+            ]
+        },
+        {
+            "id": "done",
+            "text": "Click on the login button",
+            "attachTo": {
+                "element": "button.flex",
+                "on": "bottom"
+            },
+            "tasks": [
+                "next"
+            ],
+            "buttons": [
+                {
+                    "text": "Finish"
                 }
             ]
         }
