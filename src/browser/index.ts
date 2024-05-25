@@ -1,5 +1,5 @@
-import Message from "../types/Message";
-import MessageType from "../types/MessageType";
+import Message from "@/types/Message";
+import MessageType from "@/types/MessageType";
 
 const scripts_url =
   "https://raw.githubusercontent.com/dvishal485/guide_me/main/configs/";

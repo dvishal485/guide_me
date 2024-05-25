@@ -1,9 +1,9 @@
+import reactLogo from "@/assets/react.svg";
+import Message from "@/types/Message";
+import MessageType from "@/types/MessageType";
 import React from "react";
-import reactLogo from "./assets/react.svg";
+import "@/App.css";
 import viteLogo from "/vite.svg";
-import "./App.css";
-import Message from "./types/Message";
-import MessageType from "./types/MessageType";
 
 function inject() {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {

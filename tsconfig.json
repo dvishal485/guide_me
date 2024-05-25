@@ -22,7 +22,12 @@
     "types": [
       "chrome",
       "node"
-    ]
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+    }
   },
   "include": [
     "src"

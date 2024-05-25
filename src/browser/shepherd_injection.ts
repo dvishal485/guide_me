@@ -1,4 +1,4 @@
-import build from "../tour_builder";
+import build from "@/tour_builder";
 
 const dummy_config = [
   {
