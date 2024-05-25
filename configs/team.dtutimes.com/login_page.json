@@ -1,5 +1,5 @@
 {
-    "match": "team.dtutimes.com/login",
+    "match": "^/login",
     "description": "Login tour for DTU Times Team Portal",
     "config": [
         {

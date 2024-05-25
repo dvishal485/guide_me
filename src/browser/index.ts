@@ -2,20 +2,21 @@ import Message from "@/types/Message";
 import MessageType from "@/types/MessageType";
 
 const scripts_url =
-  "https://raw.githubusercontent.com/dvishal485/guide_me/main/configs/";
+  "https://raw.githubusercontent.com/dvishal485/guide_me/main/configs";
 
 chrome.runtime.onMessage.addListener(
   (message: Message, _sender, sendResponse) => {
+    console.log(message);
     switch (message.message_type) {
       case MessageType.FetchScripts:
-        fetch(scripts_url + message.payload! + "/index.json")
+        fetch(`${scripts_url}/${message.payload!}/index.json`)
           .then((response) => {
             response.json().then(sendResponse);
           })
           .catch(console.error);
         break;
       case MessageType.GetScript:
-        fetch(message.payload!)
+        fetch(`${scripts_url}/${message.payload!}`)
           .then((response) => {
             response.json().then(sendResponse);
           })
