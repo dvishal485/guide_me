@@ -3,7 +3,7 @@ import Message from "@/types/Message";
 import MessageType from "@/types/MessageType";
 import React from "react";
 import "@/App.css";
-import build from "@/tour_builder";
+import build_tour from "@/tour_builder";
 import viteLogo from "/vite.svg";
 import DomainConfig from "./types/DomainConfig";
 import match from "./utils/matcher";
@@ -68,13 +68,7 @@ function App() {
           target: {
             tabId: tabId,
           },
-          func: () => {
-            console.log("Shepherd injection!");
-
-            const tour = build(script.config);
-            tour?.start();
-          },
-          // files: ["assets/shepherd_injection.js"],
+          files: ["assets/shepherd_injection.js"],
         });
       });
     });

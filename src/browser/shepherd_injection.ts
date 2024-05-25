@@ -1,41 +1,18 @@
 import build from "@/tour_builder";
 
-const dummy_config = [
-  {
-    id: "email",
-    text: "email elem",
-    attachTo: {
-      element: "#email",
-      on: "bottom",
-    },
-    classes: "email",
-    tasks: ["next"],
-    buttons: [
-      {
-        text: "Next",
-      },
-    ],
-  },
-  {
-    id: "password",
-    text: "pwd elem",
-    attachTo: {
-      element: "#password",
-      on: "bottom",
-    },
-    tasks: ["next"],
-    classes: "password",
-    buttons: [
-      {
-        text: "Next",
-      },
-    ],
-  },
-];
-
 (function () {
   console.log("Shepherd injection!");
-
-  const tour = build(dummy_config);
-  tour?.start();
+  console.log(document);
+  const dummy_config = document.querySelector(
+    "#dummy_shepherd_config",
+  )?.textContent;
+  if (dummy_config) {
+    console.log("Config found in the page!");
+    const config = JSON.parse(dummy_config);
+    console.log(config);
+    const tour = build(config.config);
+    tour?.start();
+  } else {
+    console.error("No config found in the page!");
+  }
 })();

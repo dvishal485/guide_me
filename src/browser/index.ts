@@ -16,11 +16,20 @@ chrome.runtime.onMessage.addListener(
           .catch(console.error);
         break;
       case MessageType.GetScript:
-        fetch(`${scripts_url}/${message.payload!}`)
-          .then((response) => {
-            response.json().then(sendResponse);
-          })
-          .catch(alert);
+        {
+          const dummyShepherdConfig = document.createElement("div");
+          dummyShepherdConfig.id = "dummy_shepherd_config";
+          dummyShepherdConfig.style.display = "none";
+          document.body.appendChild(dummyShepherdConfig);
+          fetch(`${scripts_url}/${message.payload!}`)
+            .then((response) => {
+              response.json().then((r) => {
+                dummyShepherdConfig.textContent = JSON.stringify(r);
+                sendResponse(r);
+              });
+            })
+            .catch(alert);
+        }
         break;
       case MessageType.InjectScript:
         console.log("Script injected message, no-op from tab");
