@@ -1,0 +1,118 @@
+{
+    "match": "^/mail/",
+    "description": "How to compose an email?",
+    "config": [
+        {
+            "id": "compose_button",
+            "text": "Click on mail compose button",
+            "attachTo": {
+                "element": ".z0",
+                "on": "bottom"
+            },
+            "tasks": [
+                "next"
+            ],
+            "buttons": [
+                {
+                    "text": "Next"
+                }
+            ]
+        },
+        {
+            "id": "from_field",
+            "text": "This is your email field, the sender of the email",
+            "attachTo": {
+                "element": "#\\:184",
+                "on": "top"
+            },
+            "tasks": [
+                "next"
+            ],
+            "buttons": [
+                {
+                    "text": "Next"
+                }
+            ]
+        },
+        {
+            "id": "to_field",
+            "text": "Input the email address of the receiver",
+            "attachTo": {
+                "element": "#\\:1al",
+                "on": "bottom"
+            },
+            "tasks": [
+                "next"
+            ],
+            "buttons": [
+                {
+                    "text": "Next"
+                }
+            ]
+        },
+        {
+            "id": "subject",
+            "text": "Input the title of the email here",
+            "attachTo": {
+                "element": "#\\:1ag",
+                "on": "bottom"
+            },
+            "tasks": [
+                "next"
+            ],
+            "buttons": [
+                {
+                    "text": "Next"
+                }
+            ]
+        },
+        {
+            "id": "subject",
+            "text": "Input the title of the email here",
+            "attachTo": {
+                "element": "#\\:1ag",
+                "on": "bottom"
+            },
+            "tasks": [
+                "next"
+            ],
+            "buttons": [
+                {
+                    "text": "Next"
+                }
+            ]
+        },
+        {
+            "id": "content",
+            "text": "Input the content of the email here",
+            "attachTo": {
+                "element": "#\\:1bq",
+                "on": "top"
+            },
+            "tasks": [
+                "next"
+            ],
+            "buttons": [
+                {
+                    "text": "Next"
+                }
+            ]
+        },
+        {
+            "id": "send",
+            "text": "Click on send button",
+            "attachTo": {
+                "element": "#\\:1a6",
+                "on": "bottom"
+            },
+            "tasks": [
+                "next"
+            ],
+            "buttons": [
+                {
+                    "text": "Finish"
+                }
+            ]
+        }
+    ]
+}
