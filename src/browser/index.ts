@@ -11,7 +11,11 @@ chrome.runtime.onMessage.addListener(
       case MessageType.FetchScripts:
         fetch(`${scripts_url}/${message.payload!}/index.json`)
           .then((response) => {
-            response.json().then(sendResponse);
+            if (response.status !== 200) {
+              throw "Response status not 200!";
+            } else {
+              response.json().then(sendResponse);
+            }
           })
           .catch((e) => {
             console.error(e);
