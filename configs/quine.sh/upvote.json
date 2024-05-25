@@ -1,0 +1,36 @@
+{
+ "match": "^quests/creator",
+ "description": "Review 3rd party apps from google account",
+ "config": [
+  {
+   "text": "Navigate to the repo you want to upvote",
+   "attachTo": {
+    "element": "a[href=\"/repo/dvishal485-guide_me-804754648\"]",
+    "on": "top"
+   },
+   "tasks": [
+    "next"
+   ],
+   "buttons": [
+    {
+     "text": "Next"
+    }
+   ]
+  },
+  {
+   "text": "Click on Upvote button",
+   "attachTo": {
+    "element": "a[href=\"/repo/dvishal485-guide_me-804754648\"] > div> div > div:nth-child(2) > div:nth-child(2) > button",
+    "on": "bottom"
+   },
+   "tasks": [
+    "next"
+   ],
+   "buttons": [
+    {
+     "text": "Finish"
+    }
+   ]
+  }
+ ]
+}
