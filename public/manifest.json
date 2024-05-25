@@ -1,5 +1,5 @@
 {
-    "name": "guide_me",
+    "name": "GuideMe",
     "description": "A browser extension to give you a step by step tutorial for various websites.",
     "version": "0.1",
     "manifest_version": 3,
@@ -33,7 +33,7 @@
     ],
     "browser_specific_settings": {
         "gecko": {
-            "id": "guide_mee@dvishal485",
+            "id": "GuideMe@dvishal485",
             "strict_min_version": "109.0"
         }
     }

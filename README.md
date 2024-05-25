@@ -14,3 +14,10 @@ Infact, it makes addition of a tutorial extremely easy on any page, it only requ
 - Push these changes in your repo
 - [Make a PR in original repo](https://github.com/dvishal485/guide_me/compare)
 - Wait for the changes to me merged!
+
+## How to build extension?
+
+- Fork and clone this repo on your system
+- [Install `bun` on your system](https://bun.sh/)
+- Execute build script `bun run build`
+- Your extension will be ready and saved at `ext/` directory!
