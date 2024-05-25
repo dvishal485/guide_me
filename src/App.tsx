@@ -1,11 +1,10 @@
 import "@/App.css";
-import reactLogo from "@/assets/react.svg";
+import guide_me_logo from "/logo.png";
 import Message from "@/types/Message";
 import MessageType from "@/types/MessageType";
 import React from "react";
 import DomainConfig from "./types/DomainConfig";
 import match from "./utils/matcher";
-import viteLogo from "/vite.svg";
 
 function fetch_scripts(): Promise<DomainConfig[]> {
   return new Promise((resolve, reject) => {
@@ -100,10 +99,7 @@ function App() {
     <>
       <div>
         <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src={guide_me_logo} className="logo" alt="Vite logo" />
         </a>
       </div>
       <h1>GuideMe!</h1>
@@ -112,15 +108,19 @@ function App() {
         <p>
           {scripts === null
             ? "Loading scripts..."
-            : scripts.map((script, idx) => (
-                <button onClick={() => inject(idx)}>
-                  {script.description}
-                </button>
-              ))}
+            : scripts.length === 0
+              ? "No guide available for this page"
+              : scripts.map((script, idx) => (
+                  <button onClick={() => inject(idx)}>
+                    {script.description}
+                  </button>
+                ))}
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        <a href="https://github.com/dvishal485/guide_me/">
+          Made by @dvishal485
+        </a>
       </p>
     </>
   );

@@ -13,7 +13,10 @@ chrome.runtime.onMessage.addListener(
           .then((response) => {
             response.json().then(sendResponse);
           })
-          .catch(console.error);
+          .catch((e) => {
+            console.error(e);
+            sendResponse([]);
+          });
         break;
       case MessageType.GetScript:
         {
