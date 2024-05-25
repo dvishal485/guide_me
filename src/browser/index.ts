@@ -18,7 +18,7 @@ chrome.runtime.onMessage.addListener(
             }
           })
           .catch((e) => {
-            console.error(e);
+            console.log("Error fetching scripts", e);
             sendResponse([]);
           });
         break;
