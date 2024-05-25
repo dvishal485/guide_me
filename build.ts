@@ -46,13 +46,22 @@ function generate_configs() {
       console.log(err);
       return;
     }
-    const domain_metadata: DomainConfig[] = [];
     domains.forEach((domain) => {
+      const domain_metadata: DomainConfig[] = [];
       const domain_config = fs.readdirSync(`configs/${domain}`);
       domain_config.forEach((config) => {
         if (config !== "index.json") {
           const config_file = fs.readFileSync(`configs/${domain}/${config}`);
           const config_json = JSON.parse(config_file.toString());
+          fs.writeFile(
+            `configs/${domain}/${config}`,
+            JSON.stringify(config_json, null, 1),
+            (e) => {
+              if (e) {
+                console.error("Error while formating!", e);
+              }
+            },
+          );
           const config_data: DomainConfig = {
             name: config,
             match: config_json.match,

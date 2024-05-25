@@ -1,1 +1,1 @@
-[{"name":"compose_mail.json","match":"^/mail/","description":"How to compose an email?"},{"name":"login_page.json","match":"^/login","description":"How to login on Teams Portal?"}]
+[{"name":"login_page.json","match":"^/login","description":"How to login on Teams Portal?"}]
