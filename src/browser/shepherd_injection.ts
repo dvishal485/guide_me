@@ -1,4 +1,4 @@
-import build from "@/tour_builder";
+import build from "@/utils/tour_builder";
 
 (function () {
   console.log("Shepherd injection!");
