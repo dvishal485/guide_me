@@ -10,19 +10,6 @@ import match from "./utils/matcher";
 
 function fetch_scripts(): Promise<DomainConfig[]> {
   return new Promise((resolve, reject) => {
-    const scripts = [
-      {
-        name: "login_page.json",
-        match: "/login",
-        description: "Login tour for DTU Times Team Portal",
-      },
-    ];
-    const url = new URL("https://team.dtutimes.com/login");
-    const response = scripts.filter((script) => match(url, script.match));
-    resolve(response);
-  });
-
-  return new Promise((resolve, reject) => {
     chrome.tabs &&
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         const tab = tabs[0];
