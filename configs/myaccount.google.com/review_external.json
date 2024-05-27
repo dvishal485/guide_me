@@ -13,7 +13,8 @@
    ],
    "buttons": [
     {
-     "text": "Next"
+     "text": "Next",
+     "task": "next"
     }
    ]
   },
@@ -28,7 +29,8 @@
    ],
    "buttons": [
     {
-     "text": "Finish"
+     "text": "Finish",
+     "task": "next"
     }
    ]
   }

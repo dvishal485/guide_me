@@ -8,6 +8,11 @@ export async function build() {
   console.log("build task started");
   generate_configs();
 
+  fs.copyFileSync(
+    "node_modules/shepherd.js/dist/esm/css/shepherd.css",
+    "src/browser/shepherd.css",
+  );
+
   await $`bunx tsc && bunx vite build`;
   const glob = new Glob("dist/assets/*.js");
   const jsFiles = await Array.fromAsync(glob.scan());

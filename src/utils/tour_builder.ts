@@ -1,4 +1,5 @@
-import S from "shepherd.js";
+import type S from "shepherd.js";
+import type { StepOptions, StepOptionsButton } from "shepherd.js/step";
 
 export default function build_tour(config: unknown[]) {
   try {
@@ -14,15 +15,19 @@ export default function build_tour(config: unknown[]) {
       },
     });
 
-    type TourSteps = Parameters<typeof injectedTour.addStep>[0] & {
-      tasks: ["next" | "prev" | "cancel"];
+    type TourButtons = StepOptionsButton & {
+      task: "prev" | "cancel" | "next";
     };
+
+    type TourSteps = {
+      buttons: ReadonlyArray<TourButtons>;
+    } & StepOptions;
 
     config_json.forEach((step) => {
       if ("buttons" in step) {
-        step.buttons?.forEach((button, idx) => {
+        step.buttons?.forEach((button) => {
           button.action = () => {
-            switch (step.tasks[idx]) {
+            switch (button.task) {
               case "prev":
                 injectedTour.back();
                 break;
