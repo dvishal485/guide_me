@@ -13,7 +13,7 @@ https://github.com/dvishal485/guide_me/assets/26341736/012f4f2e-6828-4bc3-bea5-a
 ## Installation
 
 - For firefox, [you can hop on to AMO](https://addons.mozilla.org/en-US/android/addon/guideme/) to download and install your addon.
-- For chrome, clone this repo and build it with environment variable `TARGET_CHROME=true`, and then load unpaced the extension on chrome the `/dist` directory. Alternatively you can directly download the `/dist` output of [built extension from releases](/releases).
+- For chrome, clone this repo and build it with environment variable `TARGET_CHROME=true`, and then load unpaced the extension on chrome the `/dist` directory. Alternatively you can directly download the `/dist` output of [built extension from releases](https://github.com/dvishal485/guide_me/releases/latest).
 
 ## Use Cases
 
