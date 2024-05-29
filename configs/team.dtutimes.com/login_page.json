@@ -54,23 +54,6 @@
      "task": "next"
     }
    ]
-  },
-  {
-   "id": "alert",
-   "text": "This is a test alert",
-   "attachTo": {
-    "element": "button.flex",
-    "on": "bottom"
-   },
-   "tasks": [
-    "next"
-   ],
-   "buttons": [
-    {
-     "text": "Finish",
-     "task": "alert('This is a test alert')"
-    }
-   ]
   }
  ]
 }

@@ -23,9 +23,9 @@ export async function build() {
       await $`bun build --minify ${jsFile} --outfile ${jsFile}`;
     }),
   );
-  fs.rm("dist/assets/chunks", { recursive: true, force: true }, (e) => {
-    if (e) console.error(e);
-  });
+  // fs.rm("dist/assets/chunks", { recursive: true, force: true }, (e) => {
+  //   if (e) console.error(e);
+  // });
   console.log("bun build completed");
 
   manifest.version = package_json.version;
