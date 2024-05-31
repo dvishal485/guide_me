@@ -9,7 +9,7 @@
     "element": "#email",
     "on": "bottom"
    },
-   "classes": "p-4 m-6",
+   "classes": "p-4 bg-gray-100 rounded-lg shadow-md",
    "tasks": [
     "next"
    ],
