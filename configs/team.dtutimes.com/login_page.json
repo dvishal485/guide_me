@@ -9,7 +9,7 @@
     "element": "#email",
     "on": "bottom"
    },
-   "classes": "email",
+   "classes": "p-4 m-6",
    "tasks": [
     "next"
    ],

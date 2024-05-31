@@ -8,6 +8,7 @@
     "element": "a[href=\"/repo/dvishal485-guide_me-804754648\"]",
     "on": "top"
    },
+   "class": "p-8",
    "tasks": [
     "next"
    ],

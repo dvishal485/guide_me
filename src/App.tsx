@@ -64,7 +64,13 @@ function App() {
         payload: `${url.hostname}/${scripts[script_idx].name}`,
       };
 
-      chrome.tabs.sendMessage(tabId, message, (_script) => {
+      chrome.tabs.sendMessage(tabId, message, (css) => {
+        chrome.scripting.insertCSS({
+          target: {
+            tabId: tabId,
+          },
+          css: ``
+        });
         chrome.scripting.executeScript({
           target: {
             tabId: tabId,
@@ -85,7 +91,7 @@ function App() {
     <>
       <div>
         <a href="https://github.com/dvishal485/guide_me" target="_blank">
-          <img src={guide_me_logo} className="logo" alt="GuideMe! Logo" />
+          <img src={guide_me_logo} className="logo bg-white p-4" alt="GuideMe! Logo" />
         </a>
       </div>
       <h1>GuideMe!</h1>

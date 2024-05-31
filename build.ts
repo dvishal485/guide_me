@@ -3,6 +3,7 @@ import fs from "fs";
 import manifest from "./public/manifest.json";
 import package_json from "./package.json";
 import DomainConfig from "./src/types/DomainConfig";
+import path from "path";
 
 export async function build() {
   console.log("build task started");
@@ -45,6 +46,13 @@ export async function build() {
   console.log(`Build done for extension ${manifest.name} v${manifest.version}`);
 }
 
+async function compile_tailwind(dir: string) {
+  if (!fs.existsSync(path.join("configs", dir, "tailwind.config.js"))) {
+    await $`cd ${dir} && bunx tailwindcss -m -c tailwind.config.js -o style.css`;
+    console.log("Tailwind compiled for", dir);
+  }
+}
+
 function generate_configs() {
   fs.readdir("configs", (err, domains) => {
     if (err) {
@@ -54,8 +62,11 @@ function generate_configs() {
     domains.forEach((domain) => {
       const domain_metadata: DomainConfig[] = [];
       const domain_config = fs.readdirSync(`configs/${domain}`);
+      compile_tailwind(`configs/${domain}`).catch((e) => {
+        console.error("Error while compiling tailwind!", e);
+      });
       domain_config.forEach((config) => {
-        if (config !== "index.json") {
+        if (config.endsWith(".json") && config !== "index.json") {
           const config_file = fs.readFileSync(`configs/${domain}/${config}`);
           const config_json = JSON.parse(config_file.toString());
           fs.writeFile(
